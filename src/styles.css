@@ -1,3 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
-
 @import "tailwindcss";
+
+@theme {
+  --font-display: "Bebas Neue", sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --color-brand-gold: #d4a853;
+  --color-brand-gold-light: #f0d48a;
+  --color-brand-blue: #38bdf8;
+  --color-surface: #0c0c0e;
+  --color-surface-elevated: #141418;
+  --color-surface-card: #1a1a20;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-surface);
+  color: #fafafa;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: color-mix(in srgb, var(--color-brand-gold) 35%, transparent);
+  color: #fff;
+}
