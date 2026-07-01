@@ -9,7 +9,7 @@ interface NavLink {
 interface Service {
   title: string;
   description: string;
-  icon: string;
+  icon: 'online' | 'presencial' | 'nutricao' | 'palco';
 }
 
 interface StudentResult {
@@ -36,8 +36,10 @@ export class App {
   protected readonly menuOpen = signal(false);
   protected readonly scrolled = signal(false);
 
-  protected readonly whatsappUrl =
-    'https://wa.me/5547999999999?text=Olá%20Nicholas!%20Quero%20saber%20mais%20sobre%20a%20consultoria.';
+  protected readonly whatsappMessage =
+    'Olá Nicholas! Quero saber mais sobre a consultoria.';
+
+  protected readonly whatsappUrl = `https://wa.me/554884976426?text=${encodeURIComponent(this.whatsappMessage)}`;
 
   protected readonly navLinks: NavLink[] = [
     { label: 'Sobre', id: 'sobre' },
@@ -51,25 +53,25 @@ export class App {
       title: 'Consultoria Online',
       description:
         'Treino e dieta 100% personalizados, com acompanhamento semanal e ajustes em tempo real pelo WhatsApp.',
-      icon: '📱',
+      icon: 'online',
     },
     {
       title: 'Treino Presencial',
       description:
         'Sessões individuais com foco em técnica, intensidade e evolução constante — do iniciante ao avançado.',
-      icon: '🏋️',
+      icon: 'presencial',
     },
     {
       title: 'Nutrição Esportiva',
       description:
         'Plano alimentar estratégico para hipertrofia, definição ou recomposição corporal, sem dietas malucas.',
-      icon: '🥗',
+      icon: 'nutricao',
     },
     {
       title: 'Preparação para Palco',
       description:
         'Protocolo completo para atletas: periodização, peak week e posing — experiência de quem viveu a competição.',
-      icon: '🏆',
+      icon: 'palco',
     },
   ];
 
